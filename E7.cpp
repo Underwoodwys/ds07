@@ -23,8 +23,8 @@ void INSERT(BITREE &T,int k){
 BITREE SEARCH(BITREE T,int k){
 	if(!T)return NULL;
 	else if(T->data==k)return T;
-	else if(T->data>k)SEARCH(T->left,k);
-	else SEARCH(T->right,k);
+	else if(T->data>k)return SEARCH(T->left,k);
+	else return SEARCH(T->right,k);
 }
 
 BITREE search(BITREE T,int k){
@@ -32,10 +32,10 @@ BITREE search(BITREE T,int k){
 	if(!T)return NULL;
 	p=T;
 	while(p){
-		if(p->data==k)return p;
+		if(p->data==k)beak;
 		else if(p->data>k)p=p->left;
 		else p=p->right;
-	}
+	}return p;
 }
 
 void CREAT(BITREE &T){
