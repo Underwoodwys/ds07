@@ -44,7 +44,14 @@ void CREAT(BITREE &T){
 		INSERT(T,a);
 	}
 }
-
+void MM(BITREE T){
+	if(!T);
+	else{
+		MM(T->left);
+		printf("%3d",T->data);
+		MM(T->right);
+	}
+}
 
 int main(void){
 	BITREE T;
@@ -60,12 +67,23 @@ int data;
 	CREAT(T);
 	printf("请输入待查找元素.\n");
 	scanf("%d",&data);
-	INSERT(T,data);
+	//INSERT(T,data);
 	if(search(T,data))
-		printf("%d",search(T,data)->data);
-	else printf("不存在此元素.\n");
+		printf("找到%d",search(T,data)->data);
+	else{ printf("不存在此元素.\n");
+	INSERT(T,data);}
+	printf("插入元素后遍历\n");
+	MM(T);
 	
 	
 	
 	return 0;
 }
+
+
+
+
+
+
+
+
